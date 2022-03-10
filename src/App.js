@@ -5,6 +5,7 @@ import AppNavbar from './components/AppNavbar'
 // import Highlights from './components/Highlights'
 import Home from './pages/Home'
 import './App.css';
+import Courses from './pages/Courses'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <AppNavbar/>
     <Container>
       <Home/>
+      <Courses/>
     </Container>
   </Fragment>
 );
