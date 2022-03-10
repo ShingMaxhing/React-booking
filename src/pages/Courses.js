@@ -6,11 +6,14 @@ export default function Courses() {
 
 	console.log(courseData)
 
+	const courses = courseData.map(element => {
+		// console.log(element)
+		return <CourseCard key={element.id} courseProp={element} />
+	})
+
 	return(
 		<Fragment>
-			<CourseCard courseProp={courseData[0]} />
-			<CourseCard courseProp={courseData[1]} />
+			{courses}
 		</Fragment>
-
 	)
 }

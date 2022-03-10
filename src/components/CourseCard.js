@@ -1,16 +1,16 @@
+import {useState} from 'react'
 import {Card, Button} from 'react-bootstrap'
 
 export default function CourseCard({courseProp}){
-	// console.log(props)
-	console.log(courseProp)
-
 	const {id, name, description, price, onOffer} = courseProp
-	console.log(id)
-	console.log(name)
-	console.log(description)
-	console.log(price)
-	console.log(onOffer)
 
+	const [count, setCount] = useState(0)
+
+	function enroll(){
+
+		setCount(count + 1)
+		console.log(`Enrollees:` + count)
+	}
 
 	return(
 		<Card className="m-3">
@@ -20,7 +20,8 @@ export default function CourseCard({courseProp}){
 			    <Card.Text>{description}</Card.Text>
 			    <Card.Subtitle>Price:</Card.Subtitle>
 			    <Card.Text>{price}</Card.Text>
-			    <Button variant="primary">Go somewhere</Button>
+			    <Card.Text>Enroll: {count}</Card.Text>
+			    <Button variant="primary" onClick={enroll}>Enroll</Button>
 		  	</Card.Body>
 		</Card>
 	)
