@@ -1,4 +1,3 @@
-
 let courseData = [
 	{
 		id: "wdc001",
