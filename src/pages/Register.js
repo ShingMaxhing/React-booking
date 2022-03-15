@@ -13,7 +13,7 @@ export default function Register(){
 	const [isActive, setIsActive] = useState(false)
 
 	const registerUser = (e) => {
-		//prevent page redirct via form submission
+		//prevent page redirect via form submission
 		e.preventDefault()
 
 		//check if user's email is unique first

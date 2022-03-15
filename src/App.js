@@ -5,6 +5,7 @@ import AppNavbar from './components/AppNavbar'
 import Home from './pages/Home'
 import Courses from './pages/Courses'
 import Register from './pages/Register'
+import Login from './pages/Login'
 import './App.css';
 
 //App.js is typically called the "top-level component"
@@ -14,7 +15,7 @@ function App() {
   <>
     <AppNavbar/>
     <Container>
-      <Register/>
+      <Login/>
     </Container>
   </>
 );
