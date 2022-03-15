@@ -24,11 +24,15 @@
 When done, copy Login.js to any folder and push your work to Gitlab, then paste to Boodle under React.js - Effects, Events, and Forms
 */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import UserContext from '../UserContext';
 
 export default function Login(){
+
+	//get the user state from the user context object
+	const { user, setUser } = useContext(UserContext)
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -50,7 +54,7 @@ export default function Login(){
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
+			// console.log(data)
 			if(data){
 				Swal.fire({
 					title: "Login successful",
