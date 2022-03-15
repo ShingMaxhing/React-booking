@@ -55,11 +55,30 @@ export default function Login(){
 		.then(res => res.json())
 		.then(data => {
 			// console.log(data)
-			if(data){
-				Swal.fire({
-					title: "Login successful",
-					icon: "success",
-					text: "Welcome to Zuitt!"
+			if(typeof data.accessToken !== "undefined"){
+				//save the JSON Web Token in localStorage
+				localStorage.setItem("token", data.accessToken)
+
+				//retrieve user details
+				fetch(`${process.env.REACT_APP_API_URL}/users/details`, {
+					headers: {
+						Authorization: `Bearer ${data.accessToken}`
+					}
+				})
+				.then(res => res.json())
+				.then(data => {
+					// console.log(data)
+
+					setUser({
+						id: data._id,
+						isAdmin: data.isAdmin 
+					})
+
+					Swal.fire({
+						title: "Login successful",
+						icon: "success",
+						text: "Welcome to Zuitt!"
+					})
 				})
 			}else{
 				Swal.fire({

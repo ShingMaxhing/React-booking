@@ -32,6 +32,7 @@ function App() {
   }
 
   return (
+  //UserProvider distributes our user state, setUser function, and unsetUser function to our entire app
   <UserProvider value={{user, setUser, unsetUser}}>
     <AppNavbar/>
     <Container>
