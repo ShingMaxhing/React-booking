@@ -26,6 +26,7 @@ When done, copy Login.js to any folder and push your work to Gitlab, then paste 
 
 import { useState, useEffect, useContext } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { Redirect, useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
 
@@ -37,6 +38,8 @@ export default function Login(){
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 	const [isActive, setIsActive] = useState(false)
+
+	const history = useHistory()
 
 	const loginUser = (e) => {
 		//prevent page redirect via form submission
@@ -79,6 +82,8 @@ export default function Login(){
 						icon: "success",
 						text: "Welcome to Zuitt!"
 					})
+
+					history.push("/courses")
 				})
 			}else{
 				Swal.fire({
@@ -101,37 +106,50 @@ export default function Login(){
 
 	}, [email, password])
 
+	if(user.id !== null){
+		
+	Swal.fire({
+		title: "Error",
+		icon: "error",
+		text: "You are already logged in."
+	})
+		return <Redirect to="/"/>
+	}
+	
 	return(
-		<Form onSubmit={e => loginUser(e)} className="my-3">
+		<>
+		<h3 className="text-center my-3">Log In</h3>
+			<Form onSubmit={e => loginUser(e)}>
 
-			<Form.Group controlId="email">
-				<Form.Label>Email</Form.Label>
-				<Form.Control
-					type="email"
-					placeholder="Enter email"
-					value={email}
-					onChange={e => setEmail(e.target.value)}
-					required
-				/>
-			</Form.Group>
+				<Form.Group controlId="email">
+					<Form.Label>Email</Form.Label>
+					<Form.Control
+						type="email"
+						placeholder="Enter email"
+						value={email}
+						onChange={e => setEmail(e.target.value)}
+						required
+					/>
+				</Form.Group>
 
-			<Form.Group controlId="password" className="mb-4">
-				<Form.Label>Password</Form.Label>
-				<Form.Control
-					type="password"
-					placeholder="Enter password"
-					value={password}
-					onChange={e => setPassword(e.target.value)}
-					required
-				/>
-			</Form.Group>
+				<Form.Group controlId="password" className="mb-4">
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						type="password"
+						placeholder="Enter password"
+						value={password}
+						onChange={e => setPassword(e.target.value)}
+						required
+					/>
+				</Form.Group>
 
-			{isActive ?
-				<Button variant="primary" type="submit" id="submitBtn">Submit</Button>
-				:
-				<Button variant="secondary" id="submitBtn" disabled>Submit</Button>
-			}
+				{isActive ?
+					<Button variant="primary" type="submit" id="submitBtn">Submit</Button>
+					:
+					<Button variant="secondary" id="submitBtn" disabled>Submit</Button>
+				}
 
-		</Form>
+			</Form>
+		</>
 	)
 }
