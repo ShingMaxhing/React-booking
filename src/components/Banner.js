@@ -7,7 +7,7 @@ export default function Banner({bannerProps}){
 	
 	return(
 		<Row>
-			<Col className="p-5">
+			<Col className="p-5 text-center">
 				<h1>{title}</h1>
 				<p>{content}</p>
 				<Link className="btn btn-primary" to={destination}>{label}</Link>

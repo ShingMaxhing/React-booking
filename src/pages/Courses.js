@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 // import courseData from './../data/courses'
-import CourseCard from './../components/CourseCard'
+import UserView from  "../components/UserView"
+import AdminView from  "../components/AdminView"
+import UserContext from "../UserContext"
 
 export default function Courses() {
 
-	const [courseData, setCourseData] = useState([])
+	const { user } = useContext(UserContext);
+
+	const [coursesData, setCoursesData] = useState([])
 
 	// console.log(courseData)
 
@@ -17,7 +21,7 @@ export default function Courses() {
 			//Any code inside of this .then only exists inside of this .then, and therefore cannot be processed properly by React
 
 			//to solve this problem, we use a state. By setting the new value of our state to be the data from our server, that state can be seen by our entire component
-			setCourseData(data)
+			setCoursesData(data)
 		})
 	}
 
@@ -26,18 +30,8 @@ export default function Courses() {
 		fetchData()
 	}, [])
 
-	const courses = courseData.map(course => {
-		// console.log(course)
-		if(course.isActive){
-			return <CourseCard key={course._id} courseProp={course} />
-		}else{
-			return null
-		}
-	})
-
-	return(
-		<>
-			{courses}
-		</>
-	)
+	return(user.isAdmin ?
+		<AdminView />
+		:
+		<UserView coursesProp={coursesData}/>)
 }
