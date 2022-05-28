@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Container } from 'react-bootstrap'
-import AppNavbar from './components/AppNavbar'
+import { Container } from 'react-bootstrap';
+import AppNavbar from './components/AppNavbar';
 // import Banner from './components/Banner'
 // import Highlights from './components/Highlights'
-import Home from './pages/Home'
-import Courses from './pages/Courses'
-import SpecificCourse from './pages/SpecificCourse'
-import Register from './pages/Register'
-import Login from './pages/Login'
-import Error from './pages/Error'
-import { UserProvider } from './UserContext'
+import Home from './pages/Home';
+import Courses from './pages/Courses';
+import SpecificCourse from './pages/SpecificCourse';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Error from './pages/Error';
+import { UserProvider } from './UserContext';
 import './App.css';
 
 //App.js is typically called the "top-level component"

@@ -60,7 +60,7 @@ export default function Register(){
 						Swal.fire({
 							title: "Registration successful",
 							icon: "success",
-							text: "Welcome to Zuitt!"
+							text: "Welcome to Shing Tutorials!"
 						})
 
 						//redirect the user to the login page

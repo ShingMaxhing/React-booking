@@ -80,7 +80,7 @@ export default function Login(){
 					Swal.fire({
 						title: "Login successful",
 						icon: "success",
-						text: "Welcome to Zuitt!"
+						text: "Welcome to Shing Tutorials!"
 					})
 
 					history.push("/courses")

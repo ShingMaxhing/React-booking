@@ -4,7 +4,7 @@ import Highlights from '../components/Highlights'
 export default function Home(){
 
 	const data = {
-		title: "Zuitt Coding Bootcamp",
+		title: "Shing Tutorials",
 		content: "Opportunities for everyone, everywhere",
 		destination: "/courses",
 		label: "Enroll now!"

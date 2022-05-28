@@ -35,7 +35,7 @@ export default function AppNavbar(){
 	return(
 		<Navbar bg="light" expand="lg">
 		  <Container>
-		    <Link className="navbar-brand" to="/">Zuitt</Link>
+		    <Link className="navbar-brand" to="/">Shing Tutorials</Link>
 		    <Navbar.Toggle aria-controls="basic-navbar-nav" />
 		    <Navbar.Collapse id="basic-navbar-nav">
 		      <Nav className="ms-auto">
